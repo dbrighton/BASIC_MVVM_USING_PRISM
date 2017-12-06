@@ -1,12 +1,13 @@
-﻿using Common;
-using Common.ViewModels;
-using Microsoft.Practices.Unity;
+﻿
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using BASIC_MVVM_CORE;
+using BASIC_MVVM_CORE.ViewModels;
+using Microsoft.Practices.Unity;
 
 namespace BASIC_MVVM
 {

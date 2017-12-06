@@ -2,11 +2,33 @@
     x:Class="BASIC_MVVM.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:BASIC_MVVM"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:BASIC_MVVM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls1="using:BASIC_MVVM_CORE.Controls"
+    xmlns:views="using:BASIC_MVVM.Views"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls1:TopBarMenuCtrl/>
+        <controls:WrapPanel
+            Name="VerticalWrapPanel"
+            Grid.Row="1"
+            Margin="2"
+            HorizontalSpacing="10"
+            VerticalSpacing="10" >
+            
+            <views:ViewOne/>
+            <views:ViewTwo/>
+            <views:ViewThree/>
+            <views:ViewFour/>
+        </controls:WrapPanel>
+
     </Grid>
 </Page>

@@ -1,6 +1,6 @@
-﻿using Common;
-using Common.ViewModels;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
+using BASIC_MVVM_CORE;
+using BASIC_MVVM_CORE.ViewModels;
 
 namespace BASIC_MVVM.Views
 {

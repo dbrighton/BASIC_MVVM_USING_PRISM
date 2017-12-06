@@ -1,0 +1,68 @@
+﻿Sorry, there was a problem downloading some files from OneDrive. Please try again.
+
+db.lock - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150873&action=Download
+
+App.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150761&action=Download
+
+TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150759&action=Download
+
+TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150757&action=Download
+
+TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150758&action=Download
+
+BASIC_MVVM.csproj.CopyComplete - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150775&action=Download
+
+TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150767&action=Download
+
+TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150766&action=Download
+
+TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150765&action=Download
+
+ViewFour.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151441&action=Download
+
+ViewOne.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151439&action=Download
+
+ViewThree.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151437&action=Download
+
+ViewTwo.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151435&action=Download
+
+App.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151432&action=Download
+
+MainPage.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151430&action=Download
+
+TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150782&action=Download
+
+TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150781&action=Download
+
+TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150780&action=Download
+
+XamlTypeInfo.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151427&action=Download
+
+TopBarMenuCtrl.g.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151453&action=Download
+
+pri.resfiles - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151202&action=Download
+
+pri.resfiles.intermediate - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151199&action=Download
+
+qualifiers.txt - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151206&action=Download
+
+qualifiers.txt.intermediate - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151205&action=Download
+
+resources.resfiles - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151200&action=Download
+
+resources.resfiles.intermediate - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151198&action=Download
+
+TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150868&action=Download
+
+TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150867&action=Download
+
+TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21150866&action=Download
+
+TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151144&action=Download
+
+TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151146&action=Download
+
+TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs - https://onedrive.live.com/?cid=73ff9f0ec852d32c&id=73FF9F0EC852D32C%21151145&action=Download
+
+
+
