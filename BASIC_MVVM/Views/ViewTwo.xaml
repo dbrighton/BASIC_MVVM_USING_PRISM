@@ -9,19 +9,55 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Border MinWidth="300" MinHeight="300" BorderBrush="#FF171515" CornerRadius="5" BorderThickness="3" >
-        <Grid Background="WhiteSmoke" Margin="3">
+    <Border
+        MinWidth="300"
+        MinHeight="300"
+        BorderBrush="#FF171515"
+        BorderThickness="3"
+        CornerRadius="5">
+        <Grid Margin="3" Background="WhiteSmoke">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Text="View Two:" Margin="3"/>
-            <StackPanel Orientation="Horizontal" Margin="3" Grid.Row="1">
-                <TextBlock Text="Process Status:"/>
-                <TextBlock Text="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" Margin="2"/>
-                <TextBlock Text="%" Margin="1"/>
-            </StackPanel>
-        </Grid>
+            <TextBlock Margin="3" Text="View Two:" />
+            <Grid Grid.Row="1">
 
+                <ProgressBar
+                    Height="20"
+                    Margin="50"
+                    IsTextScaleFactorEnabled="True"
+                    Value="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" />
+
+                <StackPanel
+                    Height="20"
+                    Margin="50"
+                    Orientation="Horizontal">
+                    <TextBlock Margin="2" Text="Process Status:" />
+                    <TextBlock Margin="2" Text="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" />
+                    <TextBlock Margin="1" Text="%" />
+                </StackPanel>
+            </Grid>
+            <RelativePanel Grid.Row="2">
+                <TextBlock
+                    x:Name="TextBlock1"
+                    Margin="3"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Text="Pass" />
+                <TextBox
+                    x:Name="TextBox1"
+                    Margin="3"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.RightOf="TextBlock1"
+                    Text="Gas" />
+                <Button
+                    Margin="3"
+                    Content=".."
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.RightOf="TextBox1" />
+            </RelativePanel>
+        </Grid>
     </Border>
 </UserControl>
