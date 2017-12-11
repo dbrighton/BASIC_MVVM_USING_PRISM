@@ -22,7 +22,6 @@ namespace BASIC_MVVM_CORE.Helpers.FormatConveters
         }
     }
 
-
     public class InversBooleanToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
@@ -40,5 +39,4 @@ namespace BASIC_MVVM_CORE.Helpers.FormatConveters
             throw new NotImplementedException();
         }
     }
-
 }

@@ -2,7 +2,7 @@
 
 namespace BASIC_MVVM_CORE.PrismEvent
 {
-    public class MenuButtonCmd : PubSubEvent<string>
+    public class MenuButtonPrismEvent : PubSubEvent<string>
     {
     }
 }

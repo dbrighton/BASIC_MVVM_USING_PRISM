@@ -108,14 +108,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServices.cs" />
+    <Compile Include="Controls\PassStringCtrl.xaml.cs">
+      <DependentUpon>PassStringCtrl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TopBarMenuCtrl.xaml.cs">
       <DependentUpon>TopBarMenuCtrl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FormatConveters\FormatConveters.cs" />
-    <Compile Include="PrismEvent\RunningPercentChanged.cs" />
-    <Compile Include="PrismEvent\IsRunningStateChanged.cs" />
-    <Compile Include="PrismEvent\MenuButtonCmd.cs" />
+    <Compile Include="PrismEvent\PassObjecCommand.cs" />
+    <Compile Include="PrismEvent\RunningPercentChangedPrismEvent.cs" />
+    <Compile Include="PrismEvent\IsRunningStateChangedPrismEvent.cs" />
+    <Compile Include="PrismEvent\MenuButtonPrismEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\IViewOneViewModel.cs" />
+    <Compile Include="ViewModels\IViewTwoViewModel.cs" />
+    <Compile Include="ViewModels\IViewFourViewModel.cs" />
+    <Compile Include="ViewModels\IViewThreeViewModel.cs" />
     <Compile Include="ViewModels\ViewFourViewModel.cs" />
     <Compile Include="ViewModels\ViewOneViewModel.cs" />
     <Compile Include="ViewModels\ViewThreeViewModel.cs" />
@@ -123,6 +131,10 @@
     <EmbeddedResource Include="Properties\BASIC_MVVM_CORE.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\PassStringCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TopBarMenuCtrl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

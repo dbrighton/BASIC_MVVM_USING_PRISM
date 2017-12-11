@@ -28,6 +28,5 @@
   <Library Name="BASIC_MVVM_CORE">
 
   	<!-- add directives for your library here -->
-
   </Library>
 </Directives>

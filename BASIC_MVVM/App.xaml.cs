@@ -1,13 +1,12 @@
-﻿
+﻿using BASIC_MVVM_CORE;
+using BASIC_MVVM_CORE.ViewModels;
+using Microsoft.Practices.Unity;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using BASIC_MVVM_CORE;
-using BASIC_MVVM_CORE.ViewModels;
-using Microsoft.Practices.Unity;
 
 namespace BASIC_MVVM
 {
@@ -26,15 +25,6 @@ namespace BASIC_MVVM
             this.Suspending += OnSuspending;
 
             InitializeUnity();
-        }
-
-        private void InitializeUnity()
-        {
-            var container = AppServices.Container;
-            container.RegisterType<ViewOneViewModel>();
-            container.RegisterType<ViewTwoViewModel>();
-            container.RegisterType<ViewThreeViewModel>();
-            container.RegisterType<ViewFourViewModel>();
         }
 
         /// <summary>
@@ -84,6 +74,14 @@ namespace BASIC_MVVM
             }
         }
 
+        private void InitializeUnity()
+        {
+            var container = AppServices.Container;
+            container.RegisterType<IViewOneViewModel,ViewOneViewModel>();
+            container.RegisterType<IViewTwoViewModel, ViewTwoViewModel>();
+            container.RegisterType<IViewThreeViewModel,ViewThreeViewModel>();
+            container.RegisterType<IViewFourViewModel,ViewFourViewModel>();
+        }
         /// <summary>
         /// Invoked when Navigation to a certain page fails
         /// </summary>

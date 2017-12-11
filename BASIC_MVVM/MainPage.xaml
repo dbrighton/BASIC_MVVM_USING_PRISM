@@ -16,19 +16,18 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <controls1:TopBarMenuCtrl/>
+        <controls1:TopBarMenuCtrl />
         <controls:WrapPanel
             Name="VerticalWrapPanel"
             Grid.Row="1"
             Margin="2"
             HorizontalSpacing="10"
-            VerticalSpacing="10" >
-            
-            <views:ViewOne/>
-            <views:ViewTwo/>
-            <views:ViewThree/>
-            <views:ViewFour/>
-        </controls:WrapPanel>
+            VerticalSpacing="10">
 
+            <views:ViewOne />
+            <views:ViewTwo />
+            <views:ViewThree />
+            <views:ViewFour />
+        </controls:WrapPanel>
     </Grid>
 </Page>
