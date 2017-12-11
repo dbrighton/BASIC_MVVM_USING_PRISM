@@ -9,9 +9,9 @@ namespace BASIC_MVVM.Views
         public ViewThree()
         {
             this.InitializeComponent();
-            this.DataContext = AppServices.Container.Resolve(typeof(IViewThreeViewModel), null) as ViewThreeViewModel;
+            this.DataContext = AppServices.Container.Resolve(typeof(View3ViewModel), null) as View3ViewModel;
         }
 
-        public IViewThreeViewModel ViewModel => DataContext as IViewThreeViewModel;
+        public View3ViewModel ViewModel => DataContext as View3ViewModel;
     }
 }

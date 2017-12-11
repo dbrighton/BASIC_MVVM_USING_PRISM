@@ -9,9 +9,9 @@ namespace BASIC_MVVM.Views
         public ViewFour()
         {
             this.InitializeComponent();
-            this.DataContext = AppServices.Container.Resolve(typeof(IViewFourViewModel), null) as ViewFourViewModel;
+            this.DataContext = AppServices.Container.Resolve(typeof(View4ViewModel), null) as View4ViewModel;
         }
 
-        public IViewFourViewModel ViewModel => DataContext as IViewFourViewModel;
+        public View4ViewModel ViewModel => DataContext as View4ViewModel;
     }
 }

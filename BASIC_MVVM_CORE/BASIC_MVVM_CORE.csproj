@@ -115,19 +115,19 @@
       <DependentUpon>TopBarMenuCtrl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FormatConveters\FormatConveters.cs" />
-    <Compile Include="PrismEvent\PassObjecCommand.cs" />
+    <Compile Include="PrismEvent\PassObjecEvent.cs" />
     <Compile Include="PrismEvent\RunningPercentChangedPrismEvent.cs" />
     <Compile Include="PrismEvent\IsRunningStateChangedPrismEvent.cs" />
     <Compile Include="PrismEvent\MenuButtonPrismEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\IViewOneViewModel.cs" />
-    <Compile Include="ViewModels\IViewTwoViewModel.cs" />
-    <Compile Include="ViewModels\IViewFourViewModel.cs" />
-    <Compile Include="ViewModels\IViewThreeViewModel.cs" />
-    <Compile Include="ViewModels\ViewFourViewModel.cs" />
-    <Compile Include="ViewModels\ViewOneViewModel.cs" />
-    <Compile Include="ViewModels\ViewThreeViewModel.cs" />
-    <Compile Include="ViewModels\ViewTwoViewModel.cs" />
+    <Compile Include="ViewModels\IView1ViewModel.cs" />
+    <Compile Include="ViewModels\IView2ViewModel.cs" />
+    <Compile Include="ViewModels\IView4ViewModel.cs" />
+    <Compile Include="ViewModels\IView3ViewModel.cs" />
+    <Compile Include="ViewModels\View4ViewModel.cs" />
+    <Compile Include="ViewModels\View1ViewModel.cs" />
+    <Compile Include="ViewModels\View3ViewModel.cs" />
+    <Compile Include="ViewModels\View2ViewModel.cs" />
     <EmbeddedResource Include="Properties\BASIC_MVVM_CORE.rd.xml" />
   </ItemGroup>
   <ItemGroup>

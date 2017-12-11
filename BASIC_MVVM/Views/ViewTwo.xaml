@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:BASIC_MVVM.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:BASIC_MVVM_CORE.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -21,6 +22,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock Margin="3" Text="View Two:" />
             <Grid Grid.Row="1">
@@ -41,23 +43,10 @@
                 </StackPanel>
             </Grid>
             <RelativePanel Grid.Row="2">
-                <TextBlock
-                    x:Name="TextBlock1"
-                    Margin="3"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Text="Pass" />
-                <TextBox
-                    x:Name="TextBox1"
-                    Margin="3"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    RelativePanel.RightOf="TextBlock1"
-                    Text="Gas" />
-                <Button
-                    Margin="3"
-                    Content=".."
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    RelativePanel.RightOf="TextBox1" />
+                <controls:PassStringCtrl  StringArg="{x:Bind ViewModel.StringToPass, Mode=OneWay}" BtnCmd="{x:Bind ViewModel.PassStringCmd}"/>
             </RelativePanel>
+
+            <TextBlock Grid.Row="4" Text="{x:Bind ViewModel.StatusText , Mode=OneWay}" Margin="10" />
         </Grid>
     </Border>
 </UserControl>

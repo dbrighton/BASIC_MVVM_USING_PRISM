@@ -13,48 +13,63 @@
     <UserControl.Resources>
         <formatConveters:BooleanToVisibilityConverter x:Name="BooleanToVisibilityConverter" />
         <formatConveters:InversBooleanToVisibilityConverter x:Name="InversBooleanToVisibilityConverter" />
+        <SolidColorBrush x:Key="MenuBtnText" Color="#FFDCEAD8" />
     </UserControl.Resources>
 
-    <StackPanel Orientation="Horizontal">
+    <StackPanel Background="CadetBlue" Orientation="Horizontal">
         <Button
             x:Name="StartProcess1"
+            Margin="3"
             Click="Button_OnClick"
             Content="Start Proccess1"
+            Foreground="{StaticResource MenuBtnText}"
             Visibility="{x:Bind ProcessOneIsRunning, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />
         <Button
             x:Name="StopProcess1"
+            Margin="3"
             Click="Button_OnClick"
             Content="Stop Proccess1"
+            Foreground="{StaticResource MenuBtnText}"
             Visibility="{x:Bind ProcessOneIsRunning, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
         <Button
             x:Name="StartProcess2"
+            Margin="3"
             Click="Button_OnClick"
             Content="Start Proccess2"
+            Foreground="{StaticResource MenuBtnText}"
             Visibility="{x:Bind ProcessTwoIsRunng, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />
         <Button
             x:Name="StopProcess2"
+            Margin="3"
             Click="Button_OnClick"
             Content="Stop Proccess2"
+            Foreground="{StaticResource MenuBtnText}"
             Visibility="{x:Bind ProcessTwoIsRunng, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        <!--<Button
+        <Button
             x:Name="StartProeces3"
-            Click="StartProcess_OnClick"
+            Margin="3"
+            Click="Button_OnClick"
             Content="Start Proccess3"
-            Visibility="{x:Bind ProcessThreeIsRunning, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />-->
-        <!--<Button
+            Foreground="{StaticResource MenuBtnText}"
+            Visibility="{x:Bind ProcessThreeIsRunning, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />
+        <Button
             x:Name="StopPerocess3"
-            Click="StartProcess_OnClick"
+            Margin="3"
+            Click="Button_OnClick"
             Content="Stop Proccess3"
-            Visibility="{Binding ProcessThreeIsRunning, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
-        <!--<Button
+            Foreground="{StaticResource MenuBtnText}"
+            Visibility="{x:Bind ProcessThreeIsRunning, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        <Button
             x:Name="StartProcess4"
-            Click="StartProcess_OnClick"
+            Click="Button_OnClick"
             Content="Start Proccess4"
-            Visibility="{Binding ProcessFourIsRunning, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />-->
-        <!--<Button
+            Foreground="{StaticResource MenuBtnText}"
+            Visibility="{x:Bind ProcessFourIsRunning, Mode=OneWay, Converter={StaticResource InversBooleanToVisibilityConverter}}" />
+        <Button
             x:Name="StopProccess4"
-            Click="StartProcess_OnClick"
+            Click="Button_OnClick"
             Content="Stop Proccess4"
-            Visibility="{Binding ProcessFourIsRunning, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
+            Foreground="{StaticResource MenuBtnText}"
+            Visibility="{x:Bind ProcessFourIsRunning, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
     </StackPanel>
 </UserControl>

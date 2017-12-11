@@ -1,6 +1,7 @@
 ﻿using BASIC_MVVM_CORE;
 using BASIC_MVVM_CORE.ViewModels;
 using Windows.UI.Xaml.Controls;
+using Microsoft.Practices.Unity;
 
 namespace BASIC_MVVM.Views
 {
@@ -9,9 +10,9 @@ namespace BASIC_MVVM.Views
         public ViewTwo()
         {
             this.InitializeComponent();
-            this.DataContext = AppServices.Container.Resolve(typeof(IViewTwoViewModel), null) as ViewTwoViewModel;
+            this.DataContext = AppServices.Container.Resolve(typeof(View2ViewModel), null) as View2ViewModel;
         }
 
-        public IViewTwoViewModel ViewModel => DataContext as IViewTwoViewModel;
+        public View2ViewModel ViewModel => DataContext as View2ViewModel;
     }
 }

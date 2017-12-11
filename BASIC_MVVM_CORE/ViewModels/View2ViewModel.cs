@@ -1,23 +1,34 @@
 ﻿using BASIC_MVVM_CORE.PrismEvent;
+using Prism.Commands;
 using Prism.Windows.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BASIC_MVVM_CORE.ViewModels
 {
-    public class ViewTwoViewModel : ViewModelBase, IViewTwoViewModel
+    public class View2ViewModel : ViewModelBase, IView2ViewModel
     {
+        private readonly Random _rand = new Random();
         private bool _isRunning;
+        private ICommand _passStringCmd;
         private int _percentCompleate;
-        private Random _rand = new Random();
+        private string _statusText;
+        private string _stringToPass = "Beer";
         private int _view1PercentCompleate;
         private int _view3PercentCompleate;
         private int _view4PercentCompleate;
+     
 
-        public ViewTwoViewModel()
+        public View2ViewModel()
         {
+
+         
+
             RegisterPrismEvents();
+            ResetCommands();
         }
 
         public bool IsRunning
@@ -26,8 +37,15 @@ namespace BASIC_MVVM_CORE.ViewModels
             set
             {
                 SetProperty(ref _isRunning, value);
-                AppServices.EventAggregator.GetEvent<IsRunningStateChangedPrismEvent>().Publish(new KeyValuePair<object, bool>(this, IsRunning));
+                AppServices.EventAggregator.GetEvent<IsRunningStateChangedPrismEvent>()
+                    .Publish(new KeyValuePair<object, bool>(this, IsRunning));
             }
+        }
+
+        public ICommand PassStringCmd
+        {
+            get { return _passStringCmd; }
+            set { SetProperty(ref _passStringCmd, value); }
         }
 
         public int PercentCompleate
@@ -36,8 +54,21 @@ namespace BASIC_MVVM_CORE.ViewModels
             set
             {
                 SetProperty(ref _percentCompleate, value);
-                AppServices.EventAggregator.GetEvent<RunningPercentChangedPrismEvent>().Publish(new KeyValuePair<object, int>(this, PercentCompleate));
+                AppServices.EventAggregator.GetEvent<RunningPercentChangedPrismEvent>()
+                    .Publish(new KeyValuePair<object, int>(this, PercentCompleate));
             }
+        }
+
+        public string StatusText
+        {
+            get { return _statusText; }
+            set { SetProperty(ref _statusText, value); }
+        }
+
+        public string StringToPass
+        {
+            get { return _stringToPass; }
+            set { SetProperty(ref _stringToPass, value); }
         }
 
         public int View1PercentCompleate
@@ -86,7 +117,7 @@ namespace BASIC_MVVM_CORE.ViewModels
                 {
                     if (!this.IsRunning)
                     {
-                        StartProcces();
+                        StartProccesAsync();
                     }
                 }
 
@@ -98,32 +129,30 @@ namespace BASIC_MVVM_CORE.ViewModels
                     }
                 }
             });
-        }
 
-        private async Task<bool> StartProcces()
-        {
-            if (!IsRunning)
-            {
-                IsRunning = true;
-
-                for (int i = 0; i < 100; i++)
+            AppServices.EventAggregator.GetEvent<PassObjecEvent>()
+                .Subscribe(payload =>
                 {
-                    if (!IsRunning)
-                    {
-                        break;
-                    }
-                    this.PercentCompleate = i;
-                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)));
-                }
-                IsRunning = false;
-            }
-            return IsRunning;
+                    StatusText = $"{payload.Key} Passed {payload.Value as string}.";
+                });
         }
 
-        private void StopProcces()
+        private void ResetCommands()
         {
-            IsRunning = false;
-            PercentCompleate = 0;
+            PassStringCmd = new DelegateCommand(() =>
+            {
+                AppServices.EventAggregator.GetEvent<PassObjecEvent>().Publish(new KeyValuePair<string, object>("View 2", StringToPass));
+            });
         }
+
+        public void StopProcces()
+        {
+          
+            IsRunning = false;
+           
+          PercentCompleate = 0;
+        }
+
+        
     }
 }

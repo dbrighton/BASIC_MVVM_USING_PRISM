@@ -9,10 +9,10 @@ namespace BASIC_MVVM.Views
         public ViewOne()
         {
             this.InitializeComponent();
-            this.DataContext = AppServices.Container.Resolve(typeof(IViewOneViewModel), null)
-                as ViewOneViewModel;
+            this.DataContext = AppServices.Container.Resolve(typeof(View1ViewModel), null)
+                as View1ViewModel;
         }
 
-        public IViewOneViewModel ViewModel => DataContext as IViewOneViewModel;
+        public View1ViewModel ViewModel=> DataContext as View1ViewModel;
     }
 }

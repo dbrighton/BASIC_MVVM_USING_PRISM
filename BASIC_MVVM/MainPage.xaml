@@ -17,17 +17,20 @@
         </Grid.RowDefinitions>
 
         <controls1:TopBarMenuCtrl />
-        <controls:WrapPanel
-            Name="VerticalWrapPanel"
-            Grid.Row="1"
-            Margin="2"
-            HorizontalSpacing="10"
-            VerticalSpacing="10">
+        <ScrollViewer   Grid.Row="1">
+            <controls:WrapPanel 
+                Name="VerticalWrapPanel"
+              
+                Margin="2"
+                HorizontalSpacing="10"
+                VerticalSpacing="10">
 
-            <views:ViewOne />
-            <views:ViewTwo />
-            <views:ViewThree />
-            <views:ViewFour />
-        </controls:WrapPanel>
+                <views:ViewOne />
+                <views:ViewTwo />
+                <views:ViewThree />
+                <views:ViewFour />
+            </controls:WrapPanel>
+        </ScrollViewer>
+       
     </Grid>
 </Page>

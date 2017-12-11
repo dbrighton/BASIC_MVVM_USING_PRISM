@@ -7,48 +7,27 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+#pragma warning disable 4014
+
 namespace BASIC_MVVM_CORE.ViewModels
 {
-    public class ViewOneViewModel : ViewModelBase, IViewOneViewModel
+    public class View1ViewModel : ViewModelBase, IView1ViewModel
     {
         private readonly Random _rand = new Random();
         private bool _isRunning;
         private ICommand _passStringCmd;
         private int _percentCompleate;
         private ICommand _startAllUsingUnityCmd;
+        private string _statusText;
         private string _stringToPass = "Gas";
         private int _view2PercentCompleate;
         private int _view3PercentCompleate;
         private int _view4PercentCompleate;
 
-        public ViewOneViewModel()
+        public View1ViewModel()
         {
             RegisterPrismEvents();
             ResetCommands();
-        }
-
-        private void ResetCommands()
-        {
-            this.PassStringCmd = new DelegateCommand<string>(ExePassStringCmd);
-            this.StartAllUsingUnityCmd = new DelegateCommand(ExeStartAllUsingUnityCmd);
-        }
-
-        private void ExeStartAllUsingUnityCmd()
-        {
-            var vm2 = AppServices.Container.Resolve<ViewTwoViewModel>();
-            var vm3 = AppServices.Container.Resolve<ViewThreeViewModel>();
-            var vm4 = AppServices.Container.Resolve<ViewFourViewModel>();
-
-            this.StartProccesAsync();
-            vm2.StartProccesAsync();
-            vm3.StartProccesAsync();
-            vm4.StartProccesAsync();
-        }
-
-        private void ExePassStringCmd(string aSrtring)
-        {
-            AppServices.EventAggregator.GetEvent<PassObjecCommand>()
-                .Publish(new KeyValuePair<string, object>("PassedFromViewOneString", aSrtring));
         }
 
         public bool IsRunning
@@ -85,6 +64,12 @@ namespace BASIC_MVVM_CORE.ViewModels
             set { SetProperty(ref _startAllUsingUnityCmd, value); }
         }
 
+        public string StatusText
+        {
+            get { return _statusText; }
+            set { SetProperty(ref _statusText, value); }
+        }
+
         public string StringToPass
         {
             get { return _stringToPass; }
@@ -109,26 +94,10 @@ namespace BASIC_MVVM_CORE.ViewModels
             set { SetProperty(ref _view4PercentCompleate, value); }
         }
 
-        private void RegisterPrismEvents()
+        public void ResetCommands()
         {
-            AppServices.EventAggregator.GetEvent<MenuButtonPrismEvent>().Subscribe(args =>
-            {
-                if (args.Equals("StartProcess1", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    if (!this.IsRunning)
-                    {
-                        StartProccesAsync();
-                    }
-                }
-
-                if (args.Equals("StopProcess1", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    if (this.IsRunning)
-                    {
-                        StopProcces();
-                    }
-                }
-            });
+            this.PassStringCmd = new DelegateCommand(ExePassStringCmd);
+            this.StartAllUsingUnityCmd = new DelegateCommand(ExeStartAllUsingUnityCmd);
         }
 
         public async Task<bool> StartProccesAsync()
@@ -151,10 +120,74 @@ namespace BASIC_MVVM_CORE.ViewModels
             return IsRunning;
         }
 
-        private void StopProcces()
+        public void StopProcces()
         {
             IsRunning = false;
             PercentCompleate = 0;
+        }
+
+        private void ExePassStringCmd()
+        {
+            AppServices.EventAggregator.GetEvent<PassObjecEvent>()
+                .Publish(new KeyValuePair<string, object>("View 1", StringToPass));
+        }
+
+        private void ExeStartAllUsingUnityCmd()
+        {
+            //Get all the ViewModels from Unitity Container and start the
+            //process
+            var vm2 = AppServices.Container.Resolve<IView2ViewModel>();
+            var vm3 = AppServices.Container.Resolve<IView3ViewModel>();
+            var vm4 = AppServices.Container.Resolve<IView4ViewModel>();
+
+            StopProcces();
+            vm2.StopProcces();
+            vm3.StopProcces();
+            vm4.StopProcces();
+
+            StartProccesAsync();
+            vm2.StartProccesAsync();
+            vm3.StartProccesAsync();
+            vm4.StartProccesAsync();
+        }
+
+        private void RegisterPrismEvents()
+        {
+            AppServices.EventAggregator.GetEvent<MenuButtonPrismEvent>().Subscribe(args =>
+            {
+                if (args.Equals("StartProcess1", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (!this.IsRunning)
+                    {
+                        StartProccesAsync();
+                    }
+                }
+
+                if (args.Equals("StopProcess1", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (this.IsRunning)
+                    {
+                        StopProcces();
+                    }
+                }
+            });
+
+            AppServices.EventAggregator.GetEvent<PassObjecEvent>()
+                .Subscribe(payload =>
+                {
+                    StatusText = $"{payload.Key} Passed {payload.Value as string}.";
+                });
+
+            AppServices.EventAggregator.GetEvent<RunningPercentChangedPrismEvent>().Subscribe(payload =>
+            {
+                var name = payload.Key.GetType().Name;
+                switch (name)
+                {
+                    case "View2ViewModel": View2PercentCompleate = payload.Value; break;
+                    case "View3ViewModel": View3PercentCompleate = payload.Value; break;
+                    case "View4ViewModel": View4PercentCompleate = payload.Value; break;
+                }
+            });
         }
     }
 }

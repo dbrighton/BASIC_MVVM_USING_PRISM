@@ -37,7 +37,7 @@ namespace BASIC_MVVM
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
@@ -77,10 +77,10 @@ namespace BASIC_MVVM
         private void InitializeUnity()
         {
             var container = AppServices.Container;
-            container.RegisterType<IViewOneViewModel,ViewOneViewModel>();
-            container.RegisterType<IViewTwoViewModel, ViewTwoViewModel>();
-            container.RegisterType<IViewThreeViewModel,ViewThreeViewModel>();
-            container.RegisterType<IViewFourViewModel,ViewFourViewModel>();
+            container.RegisterType<IView1ViewModel,View1ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView2ViewModel, View2ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView3ViewModel,View3ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView4ViewModel,View4ViewModel>(new ContainerControlledLifetimeManager());
         }
         /// <summary>
         /// Invoked when Navigation to a certain page fails

@@ -5,8 +5,8 @@
     xmlns:controls="using:BASIC_MVVM_CORE.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    d:DesignHeight="396.951"
+    d:DesignWidth="829.878"
     mc:Ignorable="d">
 
     <Border
@@ -16,37 +16,113 @@
         BorderThickness="3"
         CornerRadius="5">
         <Grid Margin="3" Background="WhiteSmoke">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition />
+                <RowDefinition Height="135*" />
+                <RowDefinition Height="224*" />
             </Grid.RowDefinitions>
             <TextBlock Margin="3" Text="View one:" />
-            <StackPanel Grid.Row="1">
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="36"
+                    Text="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" />
+                <TextBlock FontSize="36" Text="%" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0">
                 <StackPanel Margin="3" Orientation="Horizontal">
-                    <TextBlock Text="Process Status:" />
-                    <TextBlock Margin="2" Text="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" />
-                    <TextBlock Margin="1" Text="%" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Process Status 1:" />
+                    <TextBlock
+                        Margin="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" />
+                    <TextBlock
+                        Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="%" />
                 </StackPanel>
                 <StackPanel Margin="3" Orientation="Horizontal">
-                    <TextBlock Text="Process Status:" />
-                    <TextBlock Margin="2" Text="{x:Bind ViewModel.View2PercentCompleate, Mode=OneWay}" />
-                    <TextBlock Margin="1" Text="%" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Process Status 2:" />
+                    <TextBlock
+                        Margin="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind ViewModel.View2PercentCompleate, Mode=OneWay}" />
+                    <TextBlock
+                        Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="%" />
                 </StackPanel>
                 <StackPanel Margin="3" Orientation="Horizontal">
-                    <TextBlock Text="Process Status:" />
-                    <TextBlock Margin="2" Text="{x:Bind ViewModel.View3PercentCompleate, Mode=OneWay}" />
-                    <TextBlock Margin="1" Text="%" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Process Status 3:" />
+                    <TextBlock
+                        Margin="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind ViewModel.View3PercentCompleate, Mode=OneWay}" />
+                    <TextBlock
+                        Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="%" />
                 </StackPanel>
                 <StackPanel Margin="3" Orientation="Horizontal">
-                    <TextBlock Text="Process Status:" />
-                    <TextBlock Margin="2" Text="{x:Bind ViewModel.View4PercentCompleate, Mode=OneWay}" />
-                    <TextBlock Margin="1" Text="%" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Process Status 4:" />
+                    <TextBlock
+                        Margin="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind ViewModel.View4PercentCompleate, Mode=OneWay}" />
+                    <TextBlock
+                        Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="%" />
                 </StackPanel>
 
-                <controls:PassStringCtrl BtnCmd="{x:Bind ViewModel.PassStringCmd, Mode=OneWay}"
-                                         Content="{x:Bind ViewModel.StringToPass, Mode=TwoWay}" />
-                <Button Content="Start all process usnig unity (not the recomend way)" Margin="10" Command="{x:Bind ViewModel.StartAllUsingUnityCmd, Mode=OneWay}" />
+
             </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+                <controls:PassStringCtrl
+                    Grid.ColumnSpan="2"
+                    BtnCmd="{x:Bind ViewModel.PassStringCmd, Mode=OneWay}"
+                    StringArg="{x:Bind ViewModel.StringToPass, Mode=TwoWay}" />
+                <Button
+                    Margin="10"
+                    Command="{x:Bind ViewModel.StartAllUsingUnityCmd, Mode=OneWay}"
+                    Content="Start all process usnig unity (not the recomend way)" />
+
+                <TextBlock Margin="10" Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" />
+
+            </StackPanel>
+
         </Grid>
     </Border>
 </UserControl>

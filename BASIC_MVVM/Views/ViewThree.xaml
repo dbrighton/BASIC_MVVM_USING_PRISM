@@ -5,9 +5,52 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:BASIC_MVVM.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:BASIC_MVVM_CORE.Controls"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid />
+    <Grid >
+
+        <Border
+            MinWidth="300"
+            MinHeight="300"
+            BorderBrush="#FF171515"
+            BorderThickness="3"
+            CornerRadius="5">
+            <Grid Margin="3" Background="WhiteSmoke">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="3" Text="View Three:" />
+                <Grid Grid.Row="1">
+
+                    <controls1:RadialProgressBar Height="150" Width="150" x:Name="RadialProgressBarControl"
+                                                Value="{x:Bind ViewModel.PercentCompleate, Mode=OneWay}" Margin="20"
+                                                Minimum="0"
+                                                Maximum="100"
+                                                Thickness="4"
+                                                Outline="Gray"
+                                                Foreground="Red">
+                    </controls1:RadialProgressBar>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="80" Margin="146,49,133,61" Width="109">
+                        <TextBlock Text="{x:Bind ViewModel.PercentCompleate , Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+                        <TextBlock Text="%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48"/>
+                    </StackPanel>
+
+                </Grid>
+                <RelativePanel Grid.Row="2">
+                    <controls:PassStringCtrl   StringArg="{x:Bind ViewModel.StringToPass, Mode=OneWay}" BtnCmd="{x:Bind ViewModel.PassStringCmd}"/>
+                </RelativePanel>
+
+                <TextBlock Grid.Row="4" Text="{x:Bind ViewModel.StatusText , Mode=OneWay}" Margin="10" />
+            </Grid>
+        </Border>
+
+    </Grid>
 </UserControl>
