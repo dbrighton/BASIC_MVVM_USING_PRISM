@@ -20,12 +20,12 @@ namespace BASIC_MVVM_CORE.ViewModels
         private int _view1PercentCompleate;
         private int _view3PercentCompleate;
         private int _view4PercentCompleate;
-     
+        private CancellationToken _ct;
 
         public View2ViewModel()
         {
-
-         
+            var tokenSource2 = new CancellationTokenSource();
+            _ct = tokenSource2.Token;
 
             RegisterPrismEvents();
             ResetCommands();
@@ -94,6 +94,8 @@ namespace BASIC_MVVM_CORE.ViewModels
             if (!IsRunning)
             {
                 IsRunning = true;
+                
+                _ct = new CancellationToken(false);
 
                 for (int i = 0; i < 100; i++)
                 {
@@ -102,7 +104,7 @@ namespace BASIC_MVVM_CORE.ViewModels
                         break;
                     }
                     this.PercentCompleate = i;
-                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)));
+                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)), _ct);
                 }
                 IsRunning = false;
             }
@@ -147,12 +149,10 @@ namespace BASIC_MVVM_CORE.ViewModels
 
         public void StopProcces()
         {
-          
+            _ct.ThrowIfCancellationRequested();
+            _ct = new CancellationToken(true);
             IsRunning = false;
-           
-          PercentCompleate = 0;
+            PercentCompleate = 0;
         }
-
-        
     }
 }

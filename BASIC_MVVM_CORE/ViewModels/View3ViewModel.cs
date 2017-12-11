@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Windows.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -16,10 +17,14 @@ namespace BASIC_MVVM_CORE.ViewModels
         private int _percentCompleate;
         private string _statusText;
         private string _stringToPass = "A Buck.";
-     
+        private CancellationToken _ct;
+
 
         public View3ViewModel()
         {
+            var tokenSource2 = new CancellationTokenSource();
+            _ct = tokenSource2.Token;
+
             RegisterPrismEvents();
             ResetCommands();
         }
@@ -72,6 +77,8 @@ namespace BASIC_MVVM_CORE.ViewModels
             if (!IsRunning)
             {
                 IsRunning = true;
+                
+                _ct = new CancellationToken(false);
 
                 for (int i = 0; i < 100; i++)
                 {
@@ -80,7 +87,7 @@ namespace BASIC_MVVM_CORE.ViewModels
                         break;
                     }
                     PercentCompleate = i;
-                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)));
+                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)), _ct);
                 }
                 IsRunning = false;
             }
@@ -89,6 +96,8 @@ namespace BASIC_MVVM_CORE.ViewModels
 
         public void StopProcces()
         {
+            _ct.ThrowIfCancellationRequested();
+            _ct = new CancellationToken(true);
             IsRunning = false;
             PercentCompleate = 0;
         }
