@@ -45,7 +45,7 @@
 
                 </Grid>
                 <RelativePanel Grid.Row="2">
-                    <controls:PassStringCtrl   StringArg="{x:Bind ViewModel.StringToPass, Mode=OneWay}" BtnCmd="{x:Bind ViewModel.PassStringCmd}"/>
+                    <controls:PassStringCtrl   StringArg="{x:Bind ViewModel.StringToPass, Mode=TwoWay}" BtnCmd="{x:Bind ViewModel.PassStringCmd}"/>
                 </RelativePanel>
 
                 <TextBlock Grid.Row="4" Text="{x:Bind ViewModel.StatusText , Mode=OneWay}" Margin="10" />

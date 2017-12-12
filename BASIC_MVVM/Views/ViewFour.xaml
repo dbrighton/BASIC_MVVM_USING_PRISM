@@ -63,7 +63,7 @@
 
                 </Grid>
                 <RelativePanel Grid.Row="2">
-                    <controls1:PassStringCtrl BtnCmd="{x:Bind ViewModel.PassStringCmd}" StringArg="{x:Bind ViewModel.StringToPass, Mode=OneWay}" />
+                    <controls1:PassStringCtrl BtnCmd="{x:Bind ViewModel.PassStringCmd}" StringArg="{x:Bind ViewModel.StringToPass, Mode=TwoWay}" />
                 </RelativePanel>
 
                 <TextBlock
