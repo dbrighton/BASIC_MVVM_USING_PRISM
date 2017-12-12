@@ -27,6 +27,17 @@ namespace BASIC_MVVM
             InitializeUnity();
         }
 
+        private void InitializeUnity()
+        {
+            var container = AppServices.Container;
+            container.RegisterType<IView1ViewModel, View1ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView2ViewModel, View2ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView3ViewModel, View3ViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IView4ViewModel, View4ViewModel>(new ContainerControlledLifetimeManager());
+        }
+
+
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -74,14 +85,7 @@ namespace BASIC_MVVM
             }
         }
 
-        private void InitializeUnity()
-        {
-            var container = AppServices.Container;
-            container.RegisterType<IView1ViewModel,View1ViewModel>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IView2ViewModel, View2ViewModel>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IView3ViewModel,View3ViewModel>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IView4ViewModel,View4ViewModel>(new ContainerControlledLifetimeManager());
-        }
+       
         /// <summary>
         /// Invoked when Navigation to a certain page fails
         /// </summary>

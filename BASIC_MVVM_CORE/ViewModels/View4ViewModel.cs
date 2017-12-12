@@ -17,12 +17,12 @@ namespace BASIC_MVVM_CORE.ViewModels
         private int _percentCompleate;
         private string _statusText;
         private string _stringToPass = "a card";
-        private CancellationToken _ct;
+        private CancellationTokenSource _tokenSource;
+
 
         public View4ViewModel()
         {
-            var tokenSource2 = new CancellationTokenSource();
-            _ct = tokenSource2.Token;
+           
 
             PassStringCmd = new DelegateCommand(() =>
             {
@@ -78,17 +78,20 @@ namespace BASIC_MVVM_CORE.ViewModels
             if (!IsRunning)
             {
                 IsRunning = true;
-                
-                _ct = new CancellationToken(false);
+
+                _tokenSource = new CancellationTokenSource();
+                var ct = _tokenSource.Token;
+
+
 
                 for (int i = 0; i < 100; i++)
                 {
-                    if (!IsRunning)
+                    if (_tokenSource.IsCancellationRequested)
                     {
                         break;
                     }
                     PercentCompleate = i;
-                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)), _ct);
+                    await Task.Delay(TimeSpan.FromSeconds(_rand.Next(1, 5)), ct);
                 }
                 IsRunning = false;
             }
@@ -97,10 +100,10 @@ namespace BASIC_MVVM_CORE.ViewModels
 
         public void StopProcces()
         {
-            _ct.ThrowIfCancellationRequested();
-            _ct = new CancellationToken(true);
+            _tokenSource?.Cancel();
             IsRunning = false;
             PercentCompleate = 0;
+
         }
 
         private void RegisterPrismEvents()
